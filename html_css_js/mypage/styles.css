@@ -1,0 +1,53 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header, nav, main, footer {
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+main article {
+    margin-bottom: 20px;
+}
+
+main article h2 {
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.image-container {
+    text-align:center;
+    padding: 10px;
+}

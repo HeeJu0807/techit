@@ -1,0 +1,39 @@
+
+  // 할 일 목록 표시
+    function displayTodoList() {
+        todoItemList.innerHTML = basicDatas.map(todo => `
+            <li class="todo-item ${todo.done ? 'checked' : ''}" data-id="${todo.id}">
+                <span class="todo-text">${todo.title}</span>
+                <span class="remove">X</span>
+            </li>
+        `).join('');
+    }
+   
+ // 할 일 상태 업데이트 
+    function updateTodo(itemId) {
+        basicDatas.forEach(todo => {
+            if (todo.id === itemId) {
+                todo.done = !todo.done;
+            }
+        });
+        displayTodoList();
+    }
+
+    // 할 일 삭제 
+    function removeTodo(itemId) {
+        basicDatas = basicDatas.filter(todo => todo.id !== itemId);
+        displayTodoList();
+    }
+
+
+    // 할 일 상태 업데이트 및 삭제 이벤트 리스너 위임
+    todoItemList.addEventListener("click", function(event) {
+        const target = event.target;
+        if (target.classList.contains("check-mark")) {
+            const itemId = parseInt(target.parentNode.dataset.id);
+            updatetodo(itemId);
+        } else if (target.classList.contains("remove")) {
+            const itemId = parseInt(target.parentNode.dataset.id);
+            removeTodo(itemId);
+        }
+    });
