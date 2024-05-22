@@ -6,6 +6,7 @@ import org.example.springmvc.domain.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.*;
 import java.util.ArrayList;
@@ -77,6 +78,12 @@ public class ExamController {
                 "Item 6", "Item 7", "Item 8", "Item 9", "Item 10");
         model.addAttribute("items", items);
         return "list";
+    }
+
+    @GetMapping("/guest/{name}")
+    public String guest(@PathVariable String name){
+        System.out.println(name);
+        return "redirect:/datetime";
     }
 
 }
