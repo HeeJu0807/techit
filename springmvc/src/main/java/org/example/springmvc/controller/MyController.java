@@ -14,14 +14,16 @@ public class MyController {
         return "home";
     }
 
-    @RequestMapping(value = "/about", method = RequestMethod.GET)
-    public String about() {
-        return "a";
-    }
+//    @RequestMapping(value = "/about", method = RequestMethod.GET)
+//    public String about() {
+//        return "a";
+//    }
 
     @GetMapping("/con")
     public String contact() { return "contact";}
 
+    // http 응답 본문으로 반환
+    // return 값이 뷰의 이름으로 해석되지 않고 그대로 반환
     @ResponseBody
     @GetMapping("rest")
     public String rest(){
@@ -36,7 +38,7 @@ public class MyController {
 //        System.out.println(age);
 //
 //        System.out.println("request:::"+request.getParameter("name"));
-//        System.out.println("request:::"+request.getParameter("age"));\
+//        System.out.println("request:::"+request.getParameter("age"));
 //        return "greeting";
 //    }
 
@@ -60,7 +62,6 @@ public class MyController {
     public ModelAndView greet(
             @RequestParam String name, ModelAndView modelAndView){
         //http://localhost:8888/gretting?name=carami
-        //?name=carami&age=20 쿼리문자열
         System.out.println(name);
 
         modelAndView.addObject("name", name);

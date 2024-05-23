@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>폼 검증 예제입니다.</h1>
+<!-- action : 폼 데이터가 전송될 URL 지정 -->
 <form method="post" th:action="@{/submitForm}" th:object="${userForm}">
     <label for="username">username : </label>
     <input type="text" th:field="*{username}" id="username">

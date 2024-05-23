@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class FormController {
     @GetMapping("/form")
     public String showForm(Model model) {
+        // userForm 이라는 이름의 새로운 UserForm 객체를 모델에 추가
         model.addAttribute("userForm", new UserForm());
         return "form";
     }
 
 //    @PostMapping("/submitForm")
+    // RequestParam : http 요청 파라미터를 메서드 파라미터에 바인딩
 //    public String submitForm(@RequestParam String username,
 //                             @RequestParam String password){
 //        System.out.println(username+ "::" +password);
@@ -27,6 +29,7 @@ public class FormController {
 //    }
 
 //    @PostMapping("/submitForm")
+    // ModelAttribute User user : 폼 데이터를 User 객체에 바인딩
 //    public String submitForm(@ModelAttribute User user){
 //        System.out.println(user.getUsername() + "::" + user.getPassword());
 //        return "result";

@@ -59,9 +59,14 @@ public class ExamController {
     @GetMapping("/datetime")
     public String showDateTime(Model model) {
         // 날짜 및 시간 데이터
+
+        // 현재 날짜
         LocalDate date = LocalDate.now();
+        // 현재 날짜와 시간
         LocalDateTime dateTime = LocalDateTime.now();
+        // 현재 시간
         LocalTime time = LocalTime.now();
+        // 서울 시간대로 현재 ZonedDateTime 을 구함
         ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
 
         // 모델에 데이터 추가
@@ -72,6 +77,7 @@ public class ExamController {
 
         return "datetime"; // Thymeleaf 템플릿 이름
     }
+
     @GetMapping("/list")
     public String showList(Model model) {
         List<String> items = Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4", "Item 5",
@@ -80,6 +86,7 @@ public class ExamController {
         return "list";
     }
 
+    // {name} 부분은 url의 변수로 사용
     @GetMapping("/guest/{name}")
     public String guest(@PathVariable String name){
         System.out.println(name);
