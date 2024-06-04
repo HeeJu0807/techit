@@ -1,30 +1,29 @@
-package com.example.jpa;
+package org.example.springdatajpa3;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
-@Table(name = "schools")
-@Getter
+@Table(name = "jpa_user")
 @Setter
+@Getter
 @NoArgsConstructor
-public class School {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "school")
-    private List<Student> students = new ArrayList<>();
+    @Column(name = "email")
+    private String email;
 
-    public School(String name) {
+    public User(String name, String email) {
         this.name = name;
+        this.email = email;
     }
 }
